@@ -1,37 +1,36 @@
 public class Nodo {
-   private Object dato;
-   private Nodo siguiente;
-   private Nodo anterior;
-   
-   public Nodo(Object dato, Nodo siguiente, Nodo anterior) {
-    this.dato = dato;
-    this.siguiente = siguiente;
-    this.anterior = anterior;
-   }
+    private Object dato;
+    private Nodo siguiente;
+    private Nodo anterior;
 
-   public Object getDato() {
-    return dato;
-   }
+    public Nodo(Object dato, Nodo siguiente, Nodo anterior) {
+        this.dato = dato;
+        this.siguiente = siguiente;
+        this.anterior = anterior;
+    }
 
-   public void setDato(Object dato) {
-    this.dato = dato;
-   }
+    public Object getDato() {
+        return dato;
+    }
 
-   public Nodo getSiguiente() {
-    return siguiente;
-   }
+    public void setDato(Object dato) {
+        this.dato = dato;
+    }
 
-   public void setSiguiente(Nodo siguiente) {
-    this.siguiente = siguiente;
-   }
+    public Nodo getSiguiente() {
+        return siguiente;
+    }
 
-   public Nodo getAnterior() {
-    return anterior;
-   }
+    public void setSiguiente(Nodo siguiente) {
+        this.siguiente = siguiente;
+    }
 
-   public void setAnterior(Nodo anterior) {
-    this.anterior = anterior;
-   }
+    public Nodo getAnterior() {
+        return anterior;
+    }
 
-   
+    public void setAnterior(Nodo anterior) {
+        this.anterior = anterior;
+    }
+
 }

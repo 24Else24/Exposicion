@@ -35,119 +35,6 @@ public class Lista {
         cantidad++;
     }
 
-    public boolean palabraPalindroma() {
-        if (!vacia()) {
-            int mitad = (int) (this.getCantidad() / 2);
-            int i = 0;
-            Nodo primero = inicio;
-            Nodo ultimo = fin;
-            while (i < mitad) {
-                if (primero.getDato() == ultimo.getDato()) {
-                    primero = primero.getSiguiente();
-                    ultimo = ultimo.getAnterior();
-                } else {
-                    return false;
-                }
-                i++;
-            }
-            return true;
-        }
-        return false;
-    }
-
-    // para buscar un elemento
-    public boolean buscar(Object dato) {
-        if (!vacia()) {
-            Nodo aux = inicio;
-            while (aux != null) {
-                //verifica si el objeto que entra por parametro es de la misma clase
-                //y si es el elemento que se está buscando
-                if (dato.getClass().equals(aux.getDato().getClass()) && dato.equals(aux.getDato())) {
-                    return true;
-                }
-                aux = aux.getSiguiente();
-            }
-        }
-        return false;
-    }
-
-    public void venderProducto(int codigo) {
-        Producto aVender = buscarProducto(codigo);
-        if (aVender != null) {
-            aVender.vender();
-        }
-    }
-
-    public Lista cantidadBodegaCero() {
-        Producto producto = null;
-        if (!vacia()) {
-            Lista salida = new Lista();
-            Nodo aux = inicio;
-            while (aux != null) {
-                //verifica si el objeto que entra por parametro es de la misma clase
-                //y si es el elemento que se está buscando
-                if (aux.getDato() instanceof Producto) {
-                    producto = (Producto) (aux.getDato());
-                    if (producto.getCantidadBodega() == 0) {
-                        salida.agregarFin(producto);
-                    }
-
-                }
-                aux = aux.getSiguiente();
-            }
-            return salida;
-        }
-        return null;
-    }
-
-    public Lista masVendidos() {
-
-
-        if (!vacia()) {
-            Lista salida = new Lista();
-            Nodo aux = inicio;
-            int valorMax = 0;
-            while (aux != null) {
-
-                if (aux.getDato() instanceof Producto) {
-                    Producto productoAux = (Producto) (aux.getDato());
-                    if (productoAux.getCantidadVendida() > valorMax) {
-                        valorMax = productoAux.getCantidadVendida();
-                        salida.agregarInicio(productoAux);
-                    } else {
-                        salida.agregarFin(productoAux);
-                    }
-
-
-                }
-                aux = aux.getSiguiente();
-            }
-            return salida;
-        }
-        return null;
-    }
-
-    public Producto buscarProducto(int codigo) {
-        Producto salida = null;
-        if (!vacia()) {
-            Nodo aux = inicio;
-            while (aux != null) {
-                //verifica si el objeto que entra por parametro es de la misma clase
-                //y si es el elemento que se está buscando
-                if (aux.getDato() instanceof Producto) {
-                    salida = (Producto) (aux.getDato());
-                    if (salida.getCodigo() == codigo) {
-                        return salida;
-                    }
-
-                }
-                aux = aux.getSiguiente();
-            }
-        }
-        return salida;
-    }
-
-    //Para eliminar el inicio
     public void eliminarInicio() {
         if (!vacia()) {
             if (inicio == fin) {
@@ -172,6 +59,29 @@ public class Lista {
             cantidad--;
         }
     }
+
+    public boolean palabraPalindroma() {
+        if (!vacia()) {
+            int mitad = (int) (this.getCantidad() / 2);
+            int i = 0;
+            Nodo primero = inicio;
+            Nodo ultimo = fin;
+            while (i < mitad) {
+                if (primero.getDato() == ultimo.getDato()) {
+                    primero = primero.getSiguiente();
+                    ultimo = ultimo.getAnterior();
+                } else {
+                    return false;
+                }
+                i++;
+            }
+            return true;
+        }
+        return false;
+    }
+
+    //Para eliminar el inicio
+
 
     //mostrar cada uno de los datos
     public String mostrarFinInicio() {
